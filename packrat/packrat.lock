@@ -96,11 +96,21 @@ Source: CRAN
 Version: 0.1-1
 Hash: fb19215402e2d9f1c7f803dcaa806fc2
 
+Package: plyr
+Source: CRAN
+Version: 1.8.4
+Requires: Rcpp
+
 Package: purrr
 Source: CRAN
 Version: 0.2.4
 Hash: a80b244ccd3fdb33a0ff2be3c50dd648
 Requires: magrittr, rlang, tibble
+
+Package: reshape2
+Source: CRAN
+Version: 1.4.2
+Requires: Rcpp, plyr, stringr
 
 Package: rlang
 Source: CRAN
@@ -117,6 +127,15 @@ GithubUsername: tercen
 GithubRef: 1.4-rtson
 GithubSha1: efea4bdc41d67e979199ba80376d41ec7fe7208f
 GithubSubdir: rtson
+
+Package: stringi
+Source: CRAN
+Version: 1.1.5
+
+Package: stringr
+Source: CRAN
+Version: 1.2.0
+Requires: magrittr, stringi
 
 Package: tercen
 Source: github

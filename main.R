@@ -1,5 +1,6 @@
 library(tercen)
 library(dplyr)
+library(reshape2)
 
 (ctx = tercenCtx())  %>% 
   select(.cindex, .rindex, .values) %>% 
