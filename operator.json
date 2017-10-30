@@ -1,0 +1,30 @@
+{
+  "name": "PCA",
+  "description": "Performs a principal components analysis on the given data",
+  "tags": ["multivariate statistics"],
+  "authors": ["tercen"],
+  "urls": ["https://github.com/tercen/pca-operator"],
+  "properties": [
+  {
+    "kind": "BooleanProperty",
+    "name": "scale",
+    "defaultValue": false
+  },
+  {
+    "kind": "BooleanProperty",
+    "name": "center",
+    "defaultValue": false
+  },
+  {
+    "kind": "EnumeratedProperty",
+    "name": "na.action",
+    "defaultValue": "na.omit",
+    "values": [
+      "na.fail",
+      "na.omit"
+    ]
+  }
+]
+}
+
+
