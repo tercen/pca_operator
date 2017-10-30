@@ -99,6 +99,7 @@ Hash: fb19215402e2d9f1c7f803dcaa806fc2
 Package: plyr
 Source: CRAN
 Version: 1.8.4
+Hash: 9598fbff0cce13bee89ae3a50230d93f
 Requires: Rcpp
 
 Package: purrr
@@ -110,6 +111,7 @@ Requires: magrittr, rlang, tibble
 Package: reshape2
 Source: CRAN
 Version: 1.4.2
+Hash: cca35d2c477d99d8bc53908939eb659e
 Requires: Rcpp, plyr, stringr
 
 Package: rlang
@@ -131,10 +133,12 @@ GithubSubdir: rtson
 Package: stringi
 Source: CRAN
 Version: 1.1.5
+Hash: b6308e49357a0b475f433599e0d8b5eb
 
 Package: stringr
 Source: CRAN
 Version: 1.2.0
+Hash: 25a86d7f410513ebb7c0bc6a5e16bdc3
 Requires: magrittr, stringi
 
 Package: tercen
