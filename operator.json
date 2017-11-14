@@ -3,7 +3,7 @@
   "description": "Performs a principal components analysis on the given data",
   "tags": ["multivariate statistics"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/pca-operator"],
+  "urls": ["https://github.com/tercen/pca_operator"],
   "properties": [
   {
     "kind": "BooleanProperty",
