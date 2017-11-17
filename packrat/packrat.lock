@@ -104,7 +104,7 @@ Requires: Rcpp
 Package: reshape2
 Source: CRAN
 Version: 1.4.2
-Requires: Rcpp, plyr, stringr
+Requires: Rcpp, stringr, plyr
 
 Package: rlang
 Source: CRAN
@@ -125,21 +125,23 @@ GithubSubdir: rtson
 Package: stringi
 Source: CRAN
 Version: 1.1.5
+Hash: b6308e49357a0b475f433599e0d8b5eb
 
 Package: stringr
 Source: CRAN
 Version: 1.2.0
+Hash: 25a86d7f410513ebb7c0bc6a5e16bdc3
 Requires: magrittr, stringi
 
 Package: tercen
 Source: github
-Version: 0.4.6
-Hash: cd7b1afeb374804c7dc837a1361becf3
+Version: 0.4.7
+Hash: 78269592d2e2596b8feeac04c7ecea07
 Requires: R6, dplyr, httr, jsonlite, rtson, tibble, yaml
 GithubRepo: teRcen
 GithubUsername: tercen
-GithubRef: 0.4.6
-GithubSha1: 8b7317cbbb430d9b1532e38f9c8261dac1a2a7b6
+GithubRef: 0.4.7
+GithubSha1: d53020e7a3330987337fdb774ebac200861aefa2
 
 Package: tibble
 Source: CRAN
