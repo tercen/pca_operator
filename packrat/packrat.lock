@@ -1,11 +1,7 @@
 PackratFormat: 1.4
-PackratVersion: 0.4.8.1
+PackratVersion: 0.4.8.52
 RVersion: 3.3.2
-Repos: BioCsoft=https://bioconductor.org/packages/3.4/bioc,
-    BioCann=https://bioconductor.org/packages/3.4/data/annotation,
-    BioCexp=https://bioconductor.org/packages/3.4/data/experiment,
-    BioCextra=https://bioconductor.org/packages/3.4/extra,
-    CRAN=https://cran.rstudio.com
+Repos: CRAN=https://cran.rstudio.com
 
 Package: BH
 Source: CRAN
@@ -78,13 +74,17 @@ Hash: 463550cf44fb6f0a2359368f42eebe62
 
 Package: openssl
 Source: CRAN
-Version: 0.9.7
-Hash: 225d43f64f60e8996d10efe15b381c66
+Version: 0.9.9
+Hash: 3858537ac10388a5db1687450908f257
 
 Package: packrat
-Source: CRAN
-Version: 0.4.8-1
-Hash: 6ad605ba7b4b476d84be6632393f5765
+Source: github
+Version: 0.4.8-52
+Hash: 7f9597c44599820158b7dd1693153db9
+GithubRepo: packrat
+GithubUsername: rstudio
+GithubRef: master
+GithubSha1: 4b3e4025404f98d25fb73799e86c1762effe5d7e
 
 Package: pkgconfig
 Source: CRAN
@@ -99,25 +99,17 @@ Hash: fb19215402e2d9f1c7f803dcaa806fc2
 Package: plyr
 Source: CRAN
 Version: 1.8.4
-Hash: 9598fbff0cce13bee89ae3a50230d93f
 Requires: Rcpp
-
-Package: purrr
-Source: CRAN
-Version: 0.2.4
-Hash: a80b244ccd3fdb33a0ff2be3c50dd648
-Requires: magrittr, rlang, tibble
 
 Package: reshape2
 Source: CRAN
 Version: 1.4.2
-Hash: cca35d2c477d99d8bc53908939eb659e
 Requires: Rcpp, plyr, stringr
 
 Package: rlang
 Source: CRAN
-Version: 0.1.2
-Hash: c17b638e3282aa222a47112d7a60bc66
+Version: 0.1.4
+Hash: fef2abdadbb8db061b9d37e7ca5cb0b4
 
 Package: rtson
 Source: github
@@ -133,23 +125,21 @@ GithubSubdir: rtson
 Package: stringi
 Source: CRAN
 Version: 1.1.5
-Hash: b6308e49357a0b475f433599e0d8b5eb
 
 Package: stringr
 Source: CRAN
 Version: 1.2.0
-Hash: 25a86d7f410513ebb7c0bc6a5e16bdc3
 Requires: magrittr, stringi
 
 Package: tercen
 Source: github
-Version: 0.4.1
-Hash: 73f11d24c7b6398649f20fc454f481be
-Requires: R6, dplyr, httr, jsonlite, purrr, rlang, rtson, tibble, yaml
+Version: 0.4.6
+Hash: cd7b1afeb374804c7dc837a1361becf3
+Requires: R6, dplyr, httr, jsonlite, rtson, tibble, yaml
 GithubRepo: teRcen
 GithubUsername: tercen
-GithubRef: 0.4.1
-GithubSha1: 2ba2b1ff924be21e6d64d4d97313117dc2115cea
+GithubRef: 0.4.6
+GithubSha1: 8b7317cbbb430d9b1532e38f9c8261dac1a2a7b6
 
 Package: tibble
 Source: CRAN
