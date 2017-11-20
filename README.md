@@ -19,7 +19,7 @@ packrat::init(options = list(
   use.cache = TRUE
   ))
   
-git add -A && git commit -m "upgrade" && git tag -a 0.0.7 -m "++" && git push && git push --tags
+git add -A && git commit -m "properties tol, maxComp added" && git tag -a 0.0.8 -m "++" && git push && git push --tags
 ```
 
 ```R
