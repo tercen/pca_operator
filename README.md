@@ -19,7 +19,7 @@ packrat::init(options = list(
   use.cache = TRUE
   ))
   
-git add -A && git commit -m "properties tol, maxComp added" && git tag -a 0.0.8 -m "++" && git push && git push --tags
+git add -A && git commit -m "default value of double property must be double" && git tag -a 0.0.9 -m "++" && git push && git push --tags
 ```
 
 ```R

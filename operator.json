@@ -30,13 +30,13 @@
   {
     "kind": "DoubleProperty",
     "name": "tol",
-    "defaultValue": "0",
+    "defaultValue": 0,
     "description": "A value indicating the magnitude below which components should be omitted. Components are omitted if their standard deviations are less than or equal to tol times the standard deviation of the first component."
   },
   {
     "kind": "DoubleProperty",
     "name": "maxComp",
-    "defaultValue": "5",
+    "defaultValue": 5,
     "description": "Max number of components"
   }
 ]
