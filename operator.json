@@ -8,13 +8,13 @@
   {
     "kind": "BooleanProperty",
     "name": "scale",
-    "defaultValue": true,
+    "defaultValue": false,
     "description": "A logical value indicating whether the variables should be scaled to have unit variance before the analysis takes place."
   },
   {
     "kind": "BooleanProperty",
     "name": "center",
-    "defaultValue": true,
+    "defaultValue": false,
     "description": "A logical value indicating whether the variables should be shifted to be zero centered."
   },
   {
