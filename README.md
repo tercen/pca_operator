@@ -6,7 +6,7 @@
 ##### Usage
 Input projection|.
 ---|---
-`row`   | represents the variables (e.g. channels, markers)
+`row`   | represents the variables (e.g. genes, channels, markers)
 `col`   | represents the observations (e.g. cells, samples) 
 `y-axis`| is the value of measurement signal of the channel/marker
 
