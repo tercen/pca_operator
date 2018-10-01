@@ -29,9 +29,7 @@ Output relations|.
 The operator performs principal component analysis. It reduces the amount of variables (i.e. indicated by rows) to a lower number (default 5).
 
 
-#### References
-see the `flowSOM::SOM` function of the R package for the documentation, 
-
+#### Reference
 
 ##### See Also
 
