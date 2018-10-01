@@ -32,6 +32,6 @@ The operator performs principal component analysis. It reduces the amount of var
 #### Reference
 
 ##### See Also
-
+[tsne](https://github.com/tercen/tsne_operator)
 
 #### Examples
