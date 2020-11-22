@@ -35,16 +35,17 @@ aPca= df %>%
   #        tol=as.double(ctx$op.value('tol')), 
   #        na.action=get(ctx$op.value('na.action')))
 
-maxComp = as.integer(ctx$op.value('maxComp'))
+#maxComp = as.integer(ctx$op.value('maxComp'))
+maxComp = 5
 maxComp = ifelse(maxComp > 0, min(maxComp, ncol(aPca$x)), ncol(aPca$x))
 
 scores = aPca$x[,1:maxComp] %>% as_tibble()
 colnames(scores) = paste(colnames(scores),"scores", sep = ".") 
-scores = scores %>% mutate(ri = 1:nrow(.), ci = 1)
+scores = scores %>% mutate(ri = 0:(nrow(.)-1), ci = 1)
 
 loadings = aPca$rotation[,1:maxComp] %>% as_tibble()
 colnames(loadings) = paste(colnames(loadings), "loadings", sep = ".")
-loadings = loadings %>% mutate(ci = 1:nrow(i), ri = 1)
+loadings = loadings %>% mutate(ci = 0:(nrow(.)-1), ri = 1)
 
 pca.data = full_join(scores, loadings, by = c("ri", "ci"))
 
