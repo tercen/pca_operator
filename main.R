@@ -5,7 +5,7 @@ library(reshape2)
 
 df= (ctx = tercenCtx())  %>% select(.ci, .ri, .y) 
 
-bTranspose = get(ctx$op.value("input.convention")) == "observations.in.columns"
+bTranspose = as.character(ctx$op.value("input.convention")) == "observations.in.columns"
 
 if (bTranspose){
   df = df %>% mutate(ci = .ri, ri = .ci)
