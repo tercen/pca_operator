@@ -14,7 +14,7 @@ if (bTranspose){
 }
   
 aPca= df %>% 
-  reshape2::acast(ri~ci, value.var='.y', fun.aggregate=mean) %>% prcomp()
+  reshape2::acast(ri~ci, value.var='.y', fun.aggregate=mean) %>% 
   prcomp(scale=as.logical(ctx$op.value('scale')),
          center=as.logical(ctx$op.value('center')),
          tol=as.double(ctx$op.value('tol')),

@@ -24,7 +24,7 @@
       "observations.in.columns",
       "observations.in.rows"
     ],
-    "description": "A function indicating if the rows in the Tercen crosstab should be treated as observations or variables."
+    "description": "A text string indicating if the rows in the Tercen crosstab should be treated as observations or variables."
   },
   {
     "kind": "EnumeratedProperty",
