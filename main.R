@@ -31,13 +31,7 @@ loadings = aPca$rotation[,1:maxComp] %>% as_tibble()
 colnames(loadings) = paste(colnames(loadings), "loadings", sep = ".")
 loadings = loadings %>% mutate(ci = 0:(nrow(.)-1), ri = 0)
 
-v.explained = (aPca$sdev[1:maxComp])^2 
-p.var.explained = matrix(nrow = 1, data = v.explained / sum(v.explained)) %>% as_tibble()
-colnames(p.var.explained) = paste("PC", 1:nrow(loadings),".p.var.explained", sep = "")
-p.var.explained = p.var.explained %>% mutate(ri = 0, ci = 0)
-
-pca.data = full_join(scores, loadings, by = c("ri", "ci")) %>% 
-  full_join(p.var.explained, by = c("ri", "ci"))
+pca.data = full_join(scores, loadings, by = c("ri", "ci")) 
 
 if (bTranspose){
   pca.data = pca.data %>% mutate(.ri = ci, .ci = ri)
