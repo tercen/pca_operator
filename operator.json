@@ -14,8 +14,17 @@
   {
     "kind": "BooleanProperty",
     "name": "center",
-    "defaultValue": false,
+    "defaultValue": true,
     "description": "A logical value indicating whether the variables should be shifted to be zero centered."
+  },  {
+    "kind": "EnumeratedProperty",
+    "name": "input.convention",
+    "defaultValue": "observations.in.columns",
+    "values": [
+      "observations.in.columns",
+      "observations.in.rows"
+    ],
+    "description": "A text string indicating if the rows in the Tercen crosstab should be treated as observations or variables."
   },
   {
     "kind": "EnumeratedProperty",
