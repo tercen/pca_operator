@@ -2,7 +2,10 @@ library(tercen)
 library(dplyr)
 library(reshape2)
 
-df = (ctx = tercenCtx())  %>% select(.ci, .ri, .y) 
+options("tercen.workflowId" = "01cb95cd7b746443ed9f40625200ef4f")
+options("tercen.stepId"     = "635b15c9-55d2-466d-bda9-6e9469b67532")
+
+df= (ctx = tercenCtx())  %>% select(.ci, .ri, .y) 
 
 input.convention <- "observations.in.columns"
 if(!is.null(ctx$op.value("input.convention"))) input.convention <- as.character(ctx$op.value("input.convention"))
@@ -61,3 +64,4 @@ pca.data <- pca.data %>%
   select(-ri, -ci) %>%
   ctx$addNamespace() %>% 
   ctx$save()
+
