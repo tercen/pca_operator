@@ -1,6 +1,6 @@
 {
   "name": "PCA",
-  "description": "Performs a principal components analysis on the given data",
+  "description": "Principal Components Analysis: Performs dimentionality reduction by calulating the most variables with the most variance, and expressing this a smaller set of new variables called components.",
   "tags": ["multivariate statistics"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/pca_operator"],
