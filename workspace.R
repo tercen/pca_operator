@@ -2,8 +2,8 @@ library(tercen)
 library(dplyr)
 library(reshape2)
 
-options("tercen.workflowId" = "01cb95cd7b746443ed9f40625200ef4f")
-options("tercen.stepId"     = "635b15c9-55d2-466d-bda9-6e9469b67532")
+options("tercen.workflowId" = "974b5abb6cd655ea8ca2633654002269")
+options("tercen.stepId"     = "634ec675-ce14-491a-a643-6f96d270ff3d")
 
 df= (ctx = tercenCtx())  %>% select(.ci, .ri, .y) 
 
@@ -55,9 +55,9 @@ pca.data = full_join(scores, loadings, by = c("ri", "ci"))
 pca.data = full_join(pca.data, eigen_df, by = c("ri", "ci")) 
 
 if (bTranspose){
-  pca.data = pca.data %>% mutate(.ri = ci, .ci = ri)
+  pca.data = pca.data %>% mutate(.ri = as.integer(ci), .ci = as.integer(ri))
 } else {
-  pca.data = pca.data %>% mutate(.ri = ri, .ci = ci)
+  pca.data = pca.data %>% mutate(.ri = as.integer(ri), .ci = as.integer(ci))
 }
 
 pca.data <- pca.data %>%

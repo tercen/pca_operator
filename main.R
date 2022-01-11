@@ -52,9 +52,9 @@ pca.data = full_join(scores, loadings, by = c("ri", "ci"))
 pca.data = full_join(pca.data, eigen_df, by = c("ri", "ci")) 
 
 if (bTranspose){
-  pca.data = pca.data %>% mutate(.ri = ci, .ci = ri)
+  pca.data = pca.data %>% mutate(.ri = as.integer(ci), .ci = as.integer(ri))
 } else {
-  pca.data = pca.data %>% mutate(.ri = ri, .ci = ci)
+  pca.data = pca.data %>% mutate(.ri = as.integer(ri), .ci = as.integer(ci))
 }
 
 pca.data <- pca.data %>%
