@@ -1,6 +1,5 @@
 library(tercen)
 library(dplyr)
-library(reshape2)
 
 ctx = tercenCtx()
 df = ctx$as.matrix()
