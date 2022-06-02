@@ -1,39 +1,61 @@
 library(tercen)
-library(dplyr)
+library(tercenApi)
+library(dplyr, warn.conflicts = FALSE)
+library(tidyr)
 
 ctx = tercenCtx()
-df = ctx$as.matrix()
 
-input.convention <- ctx$op.value("input.convention", as.character, "observations.in.columns")
-if(input.convention == "observations.in.columns") df <- t(df)
+scale = ctx$op.value("scale", type=as.logical, default = FALSE)  
+center = ctx$op.value("center", type=as.logical, default = TRUE)  
+tol = ctx$op.value("tol", type=as.double, default = 0)
+maxComp = ctx$op.value("maxComp", type=as.integer, default=4)  
 
-scale <- ctx$op.value("scale", as.logical, FALSE)
-center <- ctx$op.value("center", as.logical, TRUE)
-tol <- ctx$op.value("tol", as.double, 0.1)
-na.action <- ctx$op.value("na.action", as.character, "na.omit")
-maxComp <- ctx$op.value("maxComp", as.double, 5)
+data.matrix = t(ctx %>% as.matrix())
 
-aPca = df %>% 
-  prcomp(scale = scale,
-         center = center,
-         tol = tol,
-         na.action = na.action,
-         rank. = maxComp)
+aPca = data.matrix %>% prcomp(scale = scale, center = center, tol = tol)
 
-eigenvalues <- aPca$sdev ^ 2
-var_explained <- (eigenvalues / sum(eigenvalues))
-eigen_df <- data.frame(pc = paste0("pc_", seq_along(eigenvalues)), eigenvalues, var_explained)
+maxComp = ifelse(maxComp > 0, min(maxComp, nrow(aPca$rotation)), nrow(aPca$rotation))
 
-scores = aPca$x %>% as_tibble()
-colnames(scores) = paste(colnames(scores), "scores", sep = ".") 
-scores = scores %>% mutate(.ri = 0:(nrow(.) - 1)) %>%
-  ctx$addNamespace()
+npc = length(aPca$sdev)
 
-loadings = aPca$rotation %>% as_tibble()
-colnames(loadings) = paste(colnames(loadings), "loadings", sep = ".")
-loadings = loadings %>% mutate(.ci = 0:(nrow(.) - 1)) %>%
-  ctx$addNamespace()
+# pad left pc names with 0 to ensure alphabetic order
+pcRelation = tibble(PC = sprintf(paste0("PC%0", nchar(as.character(npc)), "d"), 1:npc)) %>%
+  ctx$addNamespace() %>%
+  as_relation()
 
-df_out <- list(scores, loadings)
+eigenRelation = tibble(pc.eigen.values = aPca$sdev^2) %>% 
+  mutate(var_explained = .$pc.eigen.values / sum(.$pc.eigen.values))%>% 
+  ctx$addNamespace() %>%
+  as_relation()
 
-ctx$save(df_out)
+loadingRelation = aPca$rotation[,1:maxComp] %>%
+  as_tibble() %>%
+  setNames(0:(ncol(.)-1)) %>%
+  mutate(.var.rids = 0:(nrow(.) - 1)) %>%
+  pivot_longer(-.var.rids,
+               names_to = ".pc.rids",
+               values_to = "pc.loading",
+               names_transform=list(.pc.rids=as.integer)) %>%
+  ctx$addNamespace() %>%
+  as_relation() %>%
+  left_join_relation(ctx$rrelation, ".var.rids", ctx$rrelation$rids)
+
+scoresRelation = aPca$x[,1:maxComp] %>%
+  as_tibble() %>%
+  setNames(0:(ncol(.)-1)) %>%
+  mutate(.i=0:(nrow(.)-1)) %>%
+  pivot_longer(-.i,
+               names_to = ".pc.rids",
+               values_to = "pc.value",
+               names_transform=list(.pc.rids=as.integer)) %>%
+  ctx$addNamespace() %>%
+  as_relation() %>%
+  left_join_relation(ctx$crelation, ".i", ctx$crelation$rids)
+
+# link all 4 relation into one and save 
+pcRelation %>%
+  left_join_relation(scoresRelation, pcRelation$rids, ".pc.rids")  %>%
+  left_join_relation(eigenRelation, pcRelation$rids, eigenRelation$rids) %>%
+  left_join_relation(loadingRelation, pcRelation$rids, ".pc.rids") %>%
+  as_join_operator(ctx$cnames, ctx$cnames) %>%
+  save_relation(ctx)
