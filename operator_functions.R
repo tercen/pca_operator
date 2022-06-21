@@ -1,4 +1,4 @@
-pca_func <- function( ctx, scale = FALSE, center = TRUE, tol=0, maxComp=4){
+pca_func <- function( ctx, scale = FALSE, center = TRUE, tol=0, maxComp=5){
   data.matrix = t(ctx %>% as.matrix())
   
   aPca = data.matrix %>% prcomp(scale = scale, center = center, tol = tol)
