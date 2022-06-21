@@ -1,0 +1,15 @@
+{
+  "kind": "TableSchema",
+  "columns": [
+    {
+      "kind": "ColumnSchema",
+      "name": "test2.pc.eigen.values",
+      "type": "double"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "test2.var_explained",
+      "type": "double"
+    }
+  ]
+}

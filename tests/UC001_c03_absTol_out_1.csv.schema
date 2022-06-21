@@ -1,0 +1,10 @@
+{
+  "kind": "TableSchema",
+  "columns": [
+    {
+      "kind": "ColumnSchema",
+      "name": "test2.PC",
+      "type": "string"
+    }
+  ]
+}

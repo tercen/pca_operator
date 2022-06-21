@@ -1,0 +1,20 @@
+{
+  "kind": "TableSchema",
+  "columns": [
+    {
+      "kind": "ColumnSchema",
+      "name": ".i",
+      "type": "integer"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": ".pc.rids",
+      "type": "integer"
+    },
+    {
+      "kind": "ColumnSchema",
+      "name": "test2.pc.value",
+      "type": "double"
+    }
+  ]
+}
