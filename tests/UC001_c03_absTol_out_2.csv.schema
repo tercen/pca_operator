@@ -4,12 +4,12 @@
     {
       "kind": "ColumnSchema",
       "name": ".i",
-      "type": "integer"
+      "type": "int32"
     },
     {
       "kind": "ColumnSchema",
       "name": ".pc.rids",
-      "type": "integer"
+      "type": "int32"
     },
     {
       "kind": "ColumnSchema",
