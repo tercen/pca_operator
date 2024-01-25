@@ -1,35 +1,40 @@
 {
   "name": "PCA",
   "description": "Principal Component Analysis: Performs dimensionality reduction by calculating the most variables with the most variance, and expressing this a smaller set of new variables called components.",
-  "tags": ["dimension reduction", "multivariate statistics"],
-  "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/pca_operator"],
+  "tags": [
+    "dimensionality reduction",
+    "multivariate statistics"
+  ],
+  "authors": [
+    "tercen"
+  ],
+  "urls": [
+    "https://github.com/tercen/pca_operator"
+  ],
   "properties": [
-  {
-    "kind": "BooleanProperty",
-    "name": "scale",
-    "defaultValue": false,
-    "description": "A logical value indicating whether the variables should be scaled to have unit variance before the analysis takes place."
-  },
-  {
-    "kind": "BooleanProperty",
-    "name": "center",
-    "defaultValue": true,
-    "description": "A logical value indicating whether the variables should be shifted to be zero centered."
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "tol",
-    "defaultValue": 0,
-    "description": "A value indicating the magnitude below which components should be omitted. Components are omitted if their standard deviations are less than or equal to tol times the standard deviation of the first component."
-  },
-  {
-    "kind": "DoubleProperty",
-    "name": "maxComp",
-    "defaultValue": 5,
-    "description": "Maximal number of components to return."
-  }
-]
+    {
+      "kind": "BooleanProperty",
+      "name": "scale",
+      "defaultValue": false,
+      "description": "A logical value indicating whether the variables should be scaled to have unit variance before the analysis takes place."
+    },
+    {
+      "kind": "BooleanProperty",
+      "name": "center",
+      "defaultValue": true,
+      "description": "A logical value indicating whether the variables should be shifted to be zero centered."
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "tol",
+      "defaultValue": 0,
+      "description": "A value indicating the magnitude below which components should be omitted. Components are omitted if their standard deviations are less than or equal to tol times the standard deviation of the first component."
+    },
+    {
+      "kind": "DoubleProperty",
+      "name": "maxComp",
+      "defaultValue": 5,
+      "description": "Maximal number of components to return."
+    }
+  ]
 }
-
-
