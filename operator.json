@@ -1,6 +1,6 @@
 {
   "name": "PCA",
-  "description": "Principal Component Analysis: Performs dimensionality reduction by calculating the most variables with the most variance, and expressing this a smaller set of new variables called components.",
+  "description": "Runs a Principal Component Analysis to reduce the dimensionality of a dataset.",
   "tags": [
     "dimensionality reduction",
     "multivariate statistics"
