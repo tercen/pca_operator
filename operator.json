@@ -8,6 +8,7 @@
   "authors": [
     "tercen"
   ],
+  "container": "ghcr.io/tercen/pca_operator:specs",
   "urls": [
     "https://github.com/tercen/pca_operator"
   ],
@@ -25,6 +26,12 @@
       "description": "A logical value indicating whether the variables should be shifted to be zero centered."
     },
     {
+      "kind": "StringProperty",
+      "name": "na.action",
+      "defaultValue": "",
+      "description": "A function which indicates what should happen when the data contain NAs."
+    },
+    {
       "kind": "DoubleProperty",
       "name": "tol",
       "defaultValue": 0,
@@ -34,7 +41,56 @@
       "kind": "DoubleProperty",
       "name": "maxComp",
       "defaultValue": 5,
-      "description": "Maximal number of components to return."
+      "description": "Maximum number of components to return."
     }
-  ]
+  ],
+  "operatorSpec": {
+    "kind": "OperatorSpec",
+    "ontologyUri": "https://tercen.com/_ontology/tercen",
+    "ontologyVersion": "0.0.1",
+    "inputSpecs": [
+      {
+        "kind": "CrosstabSpec",
+        "metaFactors": [
+          {
+            "kind": "MetaFactor",
+            "name": "Variable",
+            "type": "",
+            "description": "Variable identifiers (e.g. genes, channels, markers).",
+            "ontologyMapping": "variable",
+            "crosstabMapping": "row",
+            "cardinality": "1..n",
+            "factors": []
+          },
+          {
+            "kind": "MetaFactor",
+            "name": "Observation",
+            "type": "",
+            "description": "Observation identifiers (e.g. cells, samples, individuals).",
+            "ontologyMapping": "observation",
+            "crosstabMapping": "column",
+            "cardinality": "1..n",
+            "factors": []
+          }
+        ],
+        "axis": [
+          {
+            "kind": "AxisSpec",
+            "metaFactors": [
+              {
+                "kind": "MetaFactor",
+                "name": "Measurement",
+                "type": "numeric",
+                "description": "Measurement values.",
+                "ontologyMapping": "measurement",
+                "crosstabMapping": "y",
+                "cardinality": "1",
+                "factors": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }
