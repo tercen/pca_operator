@@ -8,7 +8,6 @@
   "authors": [
     "tercen"
   ],
-  "container": "ghcr.io/tercen/pca_operator:specs",
   "urls": [
     "https://github.com/tercen/pca_operator"
   ],
